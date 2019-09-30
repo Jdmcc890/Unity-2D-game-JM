@@ -27,7 +27,7 @@ public class CollectibleManager : MonoBehaviour
 
 		if (_collectedCoins == _totalCoins)
 		{
-			coinCount.SetText("You Suck, Kudos to You");
+			coinCount.SetText("You Win?");
 		}
 	}
 
