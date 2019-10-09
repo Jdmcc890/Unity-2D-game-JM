@@ -8,10 +8,19 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip coinCollectSound;
+    public AudioClip hitBoxSound;
 
     private void Awake()
     {
-        Instance = this;  
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void PlayCoinCollectSound()
@@ -20,6 +29,11 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public void PlayHitBoxColideSound()
+    {
+        audioSource.clip = hitBoxSound;
+        audioSource.Play();
+    }
 
 
 
