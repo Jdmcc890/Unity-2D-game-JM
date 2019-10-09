@@ -9,10 +9,11 @@ public class YouWinMenu : MonoBehaviour
     public static YouWinMenu Instance;
     public GameObject container;
     public Button nextlevelButton;
-
+    public Button dismissButton;
     private void OnEnable()
     {
         nextlevelButton.onClick.AddListener(HandleNextLevelPressed);
+        dismissButton.onClick.AddListener(Hide);
     }
 
     private void OnDisable()
@@ -24,6 +25,16 @@ public class YouWinMenu : MonoBehaviour
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
+
+        if (Application.CanStreamedLevelBeLoaded(nextSceneIndex))
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        
+        else
+        {
+            Debug.LogWarning("NO MORE LEVELS");
+        }
     }
     private void Awake()
     {
@@ -33,5 +44,10 @@ public class YouWinMenu : MonoBehaviour
     public void Show()
     {
         container.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        container.SetActive(false);
     }
 }
