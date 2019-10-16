@@ -34,6 +34,7 @@ public class CollectibleManager : MonoBehaviour
 		DisplayCoinCount();
         if (_collectedCoins == _totalCoins)
         {
+          //  SoundManager.Instance.PlayYouWinSound();
             YouWinMenu.Instance.Show();
         }
 
