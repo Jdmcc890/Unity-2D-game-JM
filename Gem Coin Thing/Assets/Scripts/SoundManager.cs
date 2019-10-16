@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip coinCollectSound;
     public AudioClip hitBoxSound;
+    public AudioClip winSound;
+
 
     private void Awake()
     {
@@ -35,7 +37,11 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
-
+  //  public void PlayYouWinSound()
+   // {
+   //     audioSource.clip = winSound;
+   //     audioSource.Play();
+   // }
 
 
 
