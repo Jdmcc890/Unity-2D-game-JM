@@ -14,10 +14,9 @@ public class Cowwectable : MonoBehaviour
             HandleCollected();
         }
     }
-	void HandleCollected()
+	public virtual void HandleCollected()
 	{
         _hasBeenCollected = true;
-		CollectibleManager.Instance.HandleCoinCollected();
 		Destroy(gameObject);
 	}
 
